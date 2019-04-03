@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 
-
 @inject("testStore")
 @observer
 class Login extends Component {
