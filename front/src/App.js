@@ -5,7 +5,7 @@ import { Provider } from "mobx-react"
 import { Router, Route, Switch } from "react-router-dom";
 import './App.css'
 
-import Login from 'pages/Login';
+import Auth from 'pages/Auth';
 import { stores } from './stores'
 
 const history = createBrowserHistory()
@@ -16,7 +16,7 @@ class App extends React.Component {
       <Provider {...stores}>
         <Router history={history}>
           <Switch>
-            <Route exact={true} path='/' component={Login} />
+            <Route exact={true} path='/' component={Auth} />
           </Switch>
         </Router>
       </Provider>
