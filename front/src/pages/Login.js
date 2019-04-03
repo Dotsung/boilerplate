@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
 
+
 @observer
 class Login extends Component {
   @observable email = ''
@@ -18,14 +19,13 @@ class Login extends Component {
     return (
       <div className="App">
         <header>Login</header>
-          <input name="email" placeholder="Email" onChange={this.onChange} value={email} fluid />
+          <input name="email" placeholder="Email" onChange={this.onChange} value={email} />
           <input
             name="password"
             type="password"
             placeholder="Password"
             onChange={this.onChange}
             value={password}
-            fluid
           />
         <button onClick={this.onSubmit}>Submit</button>
       </div>

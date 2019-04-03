@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+// @flow
+import React from 'react';
 import './App.css';
-import Login from './Login.js';
+import { Provider } from "mobx-react"
+import { Router, Route, Switch } from "react-router-dom";
 
-class App extends Component {
+import Login from './pages/Login';
+import { stores } from './stores'
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
