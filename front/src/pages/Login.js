@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { observable, action } from 'mobx'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
 
+@inject("testStore")
 @observer
 class Login extends Component {
   @observable email = ''
@@ -19,15 +20,26 @@ class Login extends Component {
     return (
       <div className="App">
         <header>Login</header>
-          <input name="email" placeholder="Email" onChange={this.onChange} value={email} />
+          <input name="email" placeholder="Email" onChange={this.onChange} value={email} fluid />
           <input
             name="password"
             type="password"
             placeholder="Password"
             onChange={this.onChange}
             value={password}
+            fluid
           />
         <button onClick={this.onSubmit}>Submit</button>
+        <div>
+          <p>현재 유저 목록</p>
+          {this.props.testStore.userList.map((user, index) => {
+            return (
+              <div>
+                <p>이름: {user.email}</p>
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }
@@ -40,7 +52,7 @@ class Login extends Component {
 
   onSubmit() {
     const { email, password } = this
-    console.log('결과확인 : ', email, password);
+    this.props.testStore.addUser({ email, password })
   }
 }
 

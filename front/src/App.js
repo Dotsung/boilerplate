@@ -1,18 +1,25 @@
 // @flow
 import React from 'react';
 import './App.css';
+import { createBrowserHistory } from 'history';
 import { Provider } from "mobx-react"
 import { Router, Route, Switch } from "react-router-dom";
 
 import Login from './pages/Login';
 import { stores } from './stores'
 
+const history = createBrowserHistory()
+
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Login />
-      </div>
+      <Provider {...stores}>
+        <Router history={history}>
+          <Switch>
+            <Route exact={true} path='/' component={Login} />
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
