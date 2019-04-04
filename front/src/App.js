@@ -7,7 +7,7 @@ import HeaderContainer from 'containers/Base/HeaderContainer';
 
 import './App.css'
 
-import Auth from 'pages/Auth';
+import { Home, Auth } from 'pages';
 import { stores } from './stores'
 
 const history = createBrowserHistory()
@@ -16,11 +16,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <HeaderContainer />
         <Provider {...stores}>
           <Router history={history}>
             <Switch>
-              <Route exact={true} path='/' component={Auth} />
+              <Route exact={true} path='/' component={Home} />
+              <Route exact={true} path='/auth' component={Auth} />
             </Switch>
           </Router>
         </Provider>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
+import db from 'shared/firebaseInit';
 
 @inject("testStore")
 
@@ -53,8 +54,12 @@ class SignUp extends React.Component {
   }
 
   onSubmit() {
-    const { email, password } = this
-    this.props.testStore.addUser({ email, password })
+    const { userName, email, password } = this
+    const userRef = db.collection('users').add({
+      userName: userName,
+      email: email,
+      password: password
+    }); 
   }
 }
 
