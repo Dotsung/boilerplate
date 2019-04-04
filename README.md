@@ -6,3 +6,13 @@
 - 게시판
 - 인포그래픽
 - 채팅
+
+## Stack
+### frontend
+- React
+- React Router v4
+- Mobx
+- Styled-Components
+
+### backend
+- firebase
