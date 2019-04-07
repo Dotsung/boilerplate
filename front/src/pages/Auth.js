@@ -3,63 +3,48 @@ import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 import db from 'shared/firebaseInit';
+import styled from 'styled-components';
+import SignUp from 'components/Auth/SignUp';
+import SignIn from 'components/Auth/SignIn';
+// import OverLay from 'components/Auth/OverLay';
+
+const Container = styled.div`
+height: 50%;
+background-color: #ffffff;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+position:absolute;
+left:50%;
+top:50%;
+overflow: hidden;
+width: 768px;
+max-width: 100%;
+min-height: 480px;
+margin-left:-384px;
+margin-top:10%;
+`
+
+const FormContainer = styled.div`
+position: absolute;
+top: 0;
+height: 100%;
+transition: all 0.6s ease-in-out;
+`
 
 @inject("testStore")
 
 @observer
 class Auth extends React.Component {
+
   render() {
     return (
-      <div className="login-form">
-        <SignUp />
-      </div>
+      <Container>
+        <FormContainer>
+          <SignUp />
+          <SignIn />
+        </FormContainer>
+      </Container>
     );
-  }
-}
-
-@observer
-class SignUp extends React.Component {
-  @observable userName = ''
-  @observable email = ''
-  @observable passwords = ''
-
-  constructor(props) {
-    super(props)
-    this.onSubmit = this.onSubmit.bind(this)
-  }
-  render() {
-    const { userName, email, password } = this
-
-    return(
-      <div className="sign-up-container">
-        <input name="userName" placeholder="Name" onChange={this.onChange} value={userName} />
-        <input name="email" placeholder="Email" onChange={this.onChange} value={email} />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={this.onChange}
-          value={password}
-        />
-        <button onClick={this.onSubmit}>Submit</button>
-      </div>
-    )
-  }
-  
-  @action.bound
-  onChange(event) {
-    const { name, value } = event.target;
-    this[name] = value;
-    console.log(name, value);
-  }
-
-  onSubmit() {
-    const { userName, email, password } = this
-    const userRef = db.collection('users').add({
-      userName: userName,
-      email: email,
-      password: password
-    }); 
   }
 }
 
