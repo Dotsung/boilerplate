@@ -6,7 +6,7 @@ import db from 'shared/firebaseInit';
 import styled from 'styled-components';
 import SignUp from 'components/Auth/SignUp';
 import SignIn from 'components/Auth/SignIn';
-// import OverLay from 'components/Auth/OverLay';
+import Overlay from 'components/Auth/Overlay';
 
 const Container = styled.div`
 height: 50%;
@@ -42,6 +42,7 @@ class Auth extends React.Component {
         <FormContainer>
           <SignUp />
           <SignIn />
+          <Overlay />
         </FormContainer>
       </Container>
     );

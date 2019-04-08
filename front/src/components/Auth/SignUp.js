@@ -3,9 +3,21 @@ import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 import db from 'shared/firebaseInit';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const SignUpContainer = styled.div`
+  ${
+    props => {
+      if(props.rightPanelActive){
+        return `
+          transform: translateX(100%);
+          opacity: 1;
+          z-index: 5;
+          animation: ${Show} 0.6s;
+        `
+      }
+    }
+  }
 `
 
 const StyledH1 = styled.h1`
@@ -34,8 +46,6 @@ const StyledA = styled.a`
 
 const StyledButton = styled.button`
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -43,6 +53,23 @@ const StyledButton = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+
+  ${
+      props => {
+          if(props.ghost) {
+              return `
+                background-color: transparent;
+                border-color: #ffffff;
+              `
+          }
+          else{ 
+              return `
+                border: 1px solid #ff4b2b;
+                background-color: #ff4b2b;
+            `
+          }
+      }
+  }
   
   &:active{
     transform: scale(0.95);
@@ -52,7 +79,6 @@ const StyledButton = styled.button`
     outline: none;
   }
 `
-// ghostButton 추가해야함
 
 const Form = styled.div`
   background-color: #ffffff;
@@ -85,6 +111,19 @@ const SocialA = styled.a`
   margin: 0 5px;
   height: 40px;
   width: 40px;
+`
+
+const Show = keyframes`
+    0%
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
 `
 
 @observer
