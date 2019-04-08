@@ -6,6 +6,10 @@ import db from 'shared/firebaseInit';
 import styled, { keyframes } from 'styled-components';
 
 const SignUpContainer = styled.div`
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
   ${
     props => {
       if(props.rightPanelActive){
@@ -18,6 +22,13 @@ const SignUpContainer = styled.div`
       }
     }
   }
+`
+
+const FormContainer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
 `
 
 const StyledH1 = styled.h1`
@@ -138,25 +149,27 @@ class SignUp extends React.Component {
     return(
       <SignUpContainer>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></link>
-        <Form>
-          <StyledH1>Create Account</StyledH1>
-          <SocialContainer>
-            <SocialA><i class="fab fa-facebook-f"></i></SocialA>
-            <SocialA><i class="fab fa-google-plus-g"></i></SocialA>
-            <SocialA><i class="fab fa-linkedin-in"></i></SocialA>
-          </SocialContainer>
-          <StyledSpan>or use your email for registration</StyledSpan>
-          <StyledInput name="userName" placeholder="Name" onChange={this.onChange} value={userName} />
-          <StyledInput name="email" placeholder="Email" onChange={this.onChange} value={email} />
-          <StyledInput
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={this.onChange}
-            value={password}
-          />
-          <StyledButton onClick={this.onSubmit}>Sign Up</StyledButton>
-        </Form>
+        <FormContainer>
+          <Form>
+            <StyledH1>Create Account</StyledH1>
+            <SocialContainer>
+              <SocialA><i class="fab fa-facebook-f"></i></SocialA>
+              <SocialA><i class="fab fa-google-plus-g"></i></SocialA>
+              <SocialA><i class="fab fa-linkedin-in"></i></SocialA>
+            </SocialContainer>
+            <StyledSpan>or use your email for registration</StyledSpan>
+            <StyledInput name="userName" placeholder="Name" onChange={this.onChange} value={userName} />
+            <StyledInput name="email" placeholder="Email" onChange={this.onChange} value={email} />
+            <StyledInput
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={this.onChange}
+              value={password}
+            />
+            <StyledButton onClick={this.onSubmit}>Sign Up</StyledButton>
+          </Form>
+        </FormContainer>
       </SignUpContainer>
     )
   }

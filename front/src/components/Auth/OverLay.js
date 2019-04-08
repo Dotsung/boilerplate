@@ -64,16 +64,32 @@ const OverlayPanel = styled.div`
 
     ${
       props => {
-          if(props.right && props.rightPanelActive) {
-              return `
-                transform: translateX(20%);
-              `
-          }
-          else if(props.left && props.rightPanelActive){ 
-              return `
-                transform: translateX(0);
+        if(props.right) {
+          if(props.rightPanelActive) {
+            return `
+              right: 0;
+              transform: translateX(20%);
             `
           }
+          else {
+            return `
+              right: 0;
+              transform: translateX(0);
+            `
+          }
+        }
+        if(props.left) {
+          if(props.rightPanelActive) {
+            return `
+              transform: translateX(0);
+            `
+          }
+          else {
+            return `
+              transform: translateX(-20%);
+            `
+          }
+        }
       }
   }
 `
