@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
 
 export const Div = styled.div`
   position: relative;
@@ -18,6 +19,48 @@ export const Container = styled.div`
   min-height: 480px;
   margin-left:-384px;
   margin-top:10%;
+`
+
+export const SignUpContainer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  left: 0;
+  width: 50%;
+
+  @keyframes show {
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+  
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+  }
+
+  ${
+    props => {
+      if(props.rightPanelActive){
+        return `
+          transform: translateX(100%);
+          opacity: 1;
+          z-index: 5;
+          animation: show 0.6s;
+        `
+      }
+      else{
+        return `
+          opacity: 0;
+          z-index: 1;
+        `
+      }
+    }
+  }
 `
 
 export const SignInContainer = styled.div`
@@ -130,19 +173,6 @@ export const SocialA = styled.a`
   width: 40px;
 `
 
-export const Show = keyframes`
-    0%
-    49.99% {
-        opacity: 0;
-        z-index: 1;
-    }
-    50%
-    100% {
-        opacity: 1;
-        z-index: 5;
-    }
-`
-
 export const OverlayContainer = styled.div`
     position: absolute;
     top: 0;
@@ -232,32 +262,5 @@ export const OverlayPanel = styled.div`
           }
         }
       }
-  }
-`
-
-export const SignUpContainer = styled.div`
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
-  left: 0;
-  width: 50%;
-  ${
-    props => {
-      if(props.rightPanelActive){
-        return `
-          transform: translateX(100%);
-          opacity: 1;
-          z-index: 5;
-          animation: ${Show} 0.6s;
-        `
-      }
-      else{
-        return `
-          opacity: 0;
-          z-index: 1;
-        `
-      }
-    }
   }
 `
