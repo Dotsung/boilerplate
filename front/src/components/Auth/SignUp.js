@@ -5,8 +5,6 @@ import { observer, inject } from 'mobx-react'
 import db from 'shared/firebaseInit';
 import styled from 'styled-components';
 
-
-
 const SignUpContainer = styled.div`
 `
 
@@ -105,6 +103,8 @@ class SignUp extends React.Component {
           <StyledH1>Create Account</StyledH1>
           <SocialContainer>
             <SocialA><i class="fab fa-facebook-f"></i></SocialA>
+            <SocialA><i class="fab fa-google-plus-g"></i></SocialA>
+            <SocialA><i class="fab fa-linkedin-in"></i></SocialA>
           </SocialContainer>
           <StyledSpan>or use your email for registration</StyledSpan>
           <StyledInput name="userName" placeholder="Name" onChange={this.onChange} value={userName} />
@@ -116,7 +116,7 @@ class SignUp extends React.Component {
             onChange={this.onChange}
             value={password}
           />
-          <StyledButton onClick={this.onSubmit}>Submit</StyledButton>
+          <StyledButton onClick={this.onSubmit}>Sign Up</StyledButton>
         </Form>
       </SignUpContainer>
     )
@@ -136,7 +136,7 @@ class SignUp extends React.Component {
       userName: userName,
       email: email,
       password: password
-    }); 
+    });
   }
 }
 
