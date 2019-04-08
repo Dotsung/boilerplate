@@ -6,6 +6,7 @@ import db from 'shared/firebaseInit';
 import styled, { keyframes } from 'styled-components';
 import { SignInContainer, FormContainer, Form, StyledH1, SocialContainer, SocialA, StyledSpan, StyledInput, StyledA, StyledButton } from 'components/Auth/Style';
 
+@inject("authToggle")
 @observer
 class SignIn extends React.Component {
   @observable email = ''
@@ -13,16 +14,16 @@ class SignIn extends React.Component {
 
   render() {
     const { email, password } = this
+    const { rightPanelActive, Toggle } = this.props.authToggle;
 
     return(
       <SignInContainer>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"></link>
           <Form>
             <StyledH1>Sign in</StyledH1>
-            <SocialContainer>
-                <SocialA><i class="fab fa-facebook-f"></i></SocialA>
-                <SocialA><i class="fab fa-google-plus-g"></i></SocialA>
-                <SocialA><i class="fab fa-linkedin-in"></i></SocialA>
+            <SocialContainer rightPanelActive={rightPanelActive}>
+                <SocialA><i className="fab fa-facebook-f"></i></SocialA>
+                <SocialA><i className="fab fa-google-plus-g"></i></SocialA>
+                <SocialA><i className="fab fa-linkedin-in"></i></SocialA>
               </SocialContainer>
               <StyledSpan>or use your account</StyledSpan>
               <StyledInput name="email" placeholder="Email" onChange={this.onChange} value={email} />

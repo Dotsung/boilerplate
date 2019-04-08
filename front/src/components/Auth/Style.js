@@ -108,7 +108,7 @@ export const Form = styled.div`
   text-align: center;
 `
 
-export const StyledInput = styled.div`
+export const StyledInput = styled.input`
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -242,8 +242,6 @@ export const SignUpContainer = styled.div`
   transition: all 0.6s ease-in-out;
   left: 0;
   width: 50%;
-  opacity: 0;
-  z-index: 1;
   ${
     props => {
       if(props.rightPanelActive){
@@ -252,6 +250,12 @@ export const SignUpContainer = styled.div`
           opacity: 1;
           z-index: 5;
           animation: ${Show} 0.6s;
+        `
+      }
+      else{
+        return `
+          opacity: 0;
+          z-index: 1;
         `
       }
     }
