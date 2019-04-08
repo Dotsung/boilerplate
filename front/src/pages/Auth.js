@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import SignUp from 'components/Auth/SignUp';
 import SignIn from 'components/Auth/SignIn';
 import Overlay from 'components/Auth/Overlay';
-import { Div, Container, FormContainer } from 'components/Auth/Style';
+import { Div, Container} from 'components/Auth/Style';
 
 @inject("testStore")
 
@@ -18,11 +18,9 @@ class Auth extends React.Component {
     return (
       <Div>
         <Container>
-          <FormContainer>
             <SignUp />
             <SignIn />
             <Overlay />
-          </FormContainer>
         </Container>
       </Div>
     );

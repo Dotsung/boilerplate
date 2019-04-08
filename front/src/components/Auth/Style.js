@@ -21,6 +21,10 @@ export const Container = styled.div`
 `
 
 export const SignInContainer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
   left: 0;
   width: 50%;
   z-index: 2;
@@ -31,12 +35,6 @@ export const SignInContainer = styled.div`
       }
     }
   }
-`
-export const FormContainer = styled.div`
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
 `
 
 export const StyledH1 = styled.h1`
@@ -234,5 +232,28 @@ export const OverlayPanel = styled.div`
           }
         }
       }
+  }
+`
+
+export const SignUpContainer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+  ${
+    props => {
+      if(props.rightPanelActive){
+        return `
+          transform: translateX(100%);
+          opacity: 1;
+          z-index: 5;
+          animation: ${Show} 0.6s;
+        `
+      }
+    }
   }
 `
