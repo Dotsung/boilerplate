@@ -144,3 +144,95 @@ export const Show = keyframes`
         z-index: 5;
     }
 `
+
+export const OverlayContainer = styled.div`
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+
+    ${
+      props => {
+        if(props.rightPanelActive){
+          return `
+            transform: translateX(-100%);
+          `
+        }
+      }
+    }
+`
+
+export const OverlayDiv = styled.div`
+    background: #ff416c;
+    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+
+    ${
+      props => {
+        if(props.rightPanelActive){
+          return `
+            transform: translateX(50%);
+          `
+        }
+      }
+    }
+`
+
+export const OverlayPanel = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+
+    ${
+      props => {
+        if(props.right) {
+          if(props.rightPanelActive) {
+            return `
+              right: 0;
+              transform: translateX(20%);
+            `
+          }
+          else {
+            return `
+              right: 0;
+              transform: translateX(0);
+            `
+          }
+        }
+        if(props.left) {
+          if(props.rightPanelActive) {
+            return `
+              transform: translateX(0);
+            `
+          }
+          else {
+            return `
+              transform: translateX(-20%);
+            `
+          }
+        }
+      }
+  }
+`
