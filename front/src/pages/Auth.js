@@ -7,29 +7,7 @@ import styled from 'styled-components';
 import SignUp from 'components/Auth/SignUp';
 import SignIn from 'components/Auth/SignIn';
 import Overlay from 'components/Auth/Overlay';
-
-const Container = styled.div`
-  height: 50%;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position:absolute;
-  left:50%;
-  top:50%;
-  overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 480px;
-  margin-left:-384px;
-  margin-top:10%;
-`
-
-const FormContainer = styled.div`
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
-`
+import { Div, Container, FormContainer } from 'components/Auth/Style';
 
 @inject("testStore")
 
@@ -38,13 +16,15 @@ class Auth extends React.Component {
 
   render() {
     return (
-      <Container>
-        <FormContainer>
-          <SignUp />
-          <SignIn />
-          <Overlay />
-        </FormContainer>
-      </Container>
+      <Div>
+        <Container>
+          <FormContainer>
+            <SignUp />
+            <SignIn />
+            <Overlay />
+          </FormContainer>
+        </Container>
+      </Div>
     );
   }
 }
