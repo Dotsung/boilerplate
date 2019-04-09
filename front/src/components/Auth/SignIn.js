@@ -17,10 +17,10 @@ class SignIn extends React.Component {
     const { rightPanelActive, Toggle } = this.props.authToggle;
 
     return(
-      <SignInContainer>
+      <SignInContainer rightPanelActive={rightPanelActive}>
           <Form>
             <StyledH1>Sign in</StyledH1>
-            <SocialContainer rightPanelActive={rightPanelActive}>
+            <SocialContainer>
                 <SocialA><i className="fab fa-facebook-f"></i></SocialA>
                 <SocialA><i className="fab fa-google-plus-g"></i></SocialA>
                 <SocialA><i className="fab fa-linkedin-in"></i></SocialA>

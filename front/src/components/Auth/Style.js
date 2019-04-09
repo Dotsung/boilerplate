@@ -68,13 +68,16 @@ export const SignInContainer = styled.div`
   top: 0;
   height: 100%;
   transition: all 0.6s ease-in-out;
+
   left: 0;
   width: 50%;
   z-index: 2;
   ${
     props => {
       if(props.rightPanelActive){
-        return `transform: translateX(100%);`
+        return `
+        transform: translateX(100%);
+        `
       }
     }
   }
@@ -206,8 +209,6 @@ export const OverlayDiv = styled.div`
     left: -100%;
     height: 100%;
     width: 200%;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
 
     ${
       props => {
@@ -216,8 +217,15 @@ export const OverlayDiv = styled.div`
             transform: translateX(50%);
           `
         }
+        else{
+          return `
+            transform: translateX(0);
+            `
+        }
       }
     }
+    
+    transition: transform 0.6s ease-in-out;
 `
 
 export const OverlayPanel = styled.div`
@@ -230,7 +238,6 @@ export const OverlayPanel = styled.div`
     top: 0;
     height: 100%;
     width: 50%;
-    transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 
     ${
