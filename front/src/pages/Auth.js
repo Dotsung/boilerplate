@@ -2,7 +2,6 @@
 import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
-import db from 'shared/firebaseInit';
 import styled from 'styled-components';
 import SignUp from 'components/Auth/SignUp';
 import SignIn from 'components/Auth/SignIn';

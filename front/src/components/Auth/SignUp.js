@@ -3,7 +3,6 @@ import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 import db from 'shared/firebaseInit';
-import styled, { keyframes } from 'styled-components';
 import { SignUpContainer, Form, StyledH1, SocialContainer, SocialA, StyledSpan, StyledInput, StyledButton } from 'components/Auth/Style';
 
 @inject("authToggle")
@@ -27,26 +26,33 @@ class SignUp extends React.Component {
             <SocialA><i className="fab fa-linkedin-in"></i></SocialA>
           </SocialContainer>
           <StyledSpan>or use your email for registration</StyledSpan>
-          <StyledInput name="userName" placeholder="Name" onChange={this.onChange} value={userName} />
-          <StyledInput name="email" placeholder="Email" onChange={this.onChange} value={email} />
+          <StyledInput name="userName" placeholder="Name" onChange={this.onChange} value={userName} onKeyPress={this.onPress} />
+          <StyledInput name="email" placeholder="Email" onChange={this.onChange} value={email} onKeyPress={this.onPress} />
           <StyledInput
             name="password"
             type="password"
             placeholder="Password"
             onChange={this.onChange}
             value={password}
+            onKeyPress={this.onPress} 
           />
           <StyledButton onClick={this.onSubmit}>Sign Up</StyledButton>
         </Form>
       </SignUpContainer>
     )
   }
+
+  @action.bound
+  onPress(f){
+    if(f.key == 'Enter'){
+      this.onSubmit();
+    }
+  }
   
   @action.bound
   onChange(event) {
     const { name, value } = event.target;
     this[name] = value;
-    console.log(name, value);
   }
 
   @action.bound

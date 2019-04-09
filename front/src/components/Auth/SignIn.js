@@ -3,7 +3,6 @@ import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 import db from 'shared/firebaseInit';
-import styled, { keyframes } from 'styled-components';
 import { SignInContainer, FormContainer, Form, StyledH1, SocialContainer, SocialA, StyledSpan, StyledInput, StyledA, StyledButton } from 'components/Auth/Style';
 
 @inject("authToggle")
