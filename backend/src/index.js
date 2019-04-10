@@ -1,14 +1,16 @@
-require('dotenv').config(); // .env 파일에서 환경변수 불러오기
+import Koa from 'koa';
+import Router from 'koa-router';
 
-const Koa = require('koa');
-const Router = require('koa-router');
+import api from './api';
+
+import mongoose from 'mongoose';
+import bodyParser from 'koa-bodyparser';
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = new Koa();
 const router = new Router();
-const api = require('./api');
-
-const mongoose = require('mongoose');
-const bodyParser = require('koa-bodyparser');
 
 mongoose.Promise = global.Promise; // Node 의 네이티브 Promise 사용
 // mongodb 연결
