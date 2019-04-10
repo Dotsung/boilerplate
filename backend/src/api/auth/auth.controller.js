@@ -17,7 +17,20 @@ export const localRegister = async (ctx) => {
         return;
     }
 
-    // TODO : 아이디,이메일 중복처리 구현
+    let existing = null;
+    try {
+        existing = await Account.findByEmailOrUsername(ctx.request.body);
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+
+    if(existing) {
+        ctx.status = 409;
+        ctx.body = {
+            key: existing.email === ctx.request.body.email ? 'email' : 'username'
+        };
+        return;
+    }
 
     // 계정 생성
     let account = null;
