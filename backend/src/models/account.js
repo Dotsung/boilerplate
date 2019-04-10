@@ -28,16 +28,16 @@ const Account = new Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-Account.statics.findByUsername = (username) => {
+Account.statics.findByUsername = function(username){
     // 객체에 내장되어있는 값을 사용 할 때는 객체명.키 이런식으로 쿼리하면 됩니다
     return this.findOne({ 'profile.username': username }).exec();
 };
 
-Account.statics.findByEmail = (email) => {
+Account.statics.findByEmail = function(email){
     return this.findOne({email}).exec();
 };
 
-Account.statics.findByEmailOrUsername = ({username, email}) => {
+Account.statics.findByEmailOrUsername = function({username, email}){
     return this.findOne({
         // $or 연산자를 통해 둘중에 하나를 만족하는 데이터를 찾습니다
         $or: [
@@ -61,7 +61,7 @@ Account.statics.localRegister = function({ username, email, password }) {
     return account.save();
 };
 
-Account.methods.validatePassword = (password) => {
+Account.methods.validatePassword = function(password){
     // 함수로 전달받은 password 의 해시값과, 데이터에 담겨있는 해시값과 비교를 합니다.
     const hashed = hash(password);
     return this.password === hashed;

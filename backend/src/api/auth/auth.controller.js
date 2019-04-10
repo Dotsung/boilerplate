@@ -44,8 +44,34 @@ export const localRegister = async (ctx) => {
 };
 
 export const localLogin = async (ctx) => {
-    ctx.body = 'login';
-}
+    const schema = Joi.object().keys({
+        email: Joi.string().email().required(),
+        password: Joi.string().required()
+    });
+
+    const result = Joi.validate(ctx.request.body, schema);
+
+    if(result.error) {
+        ctx.status = 400;
+        return;
+    }
+
+    const { email, password } = ctx.request.body;
+
+    let account = null;
+    try{
+        account = await Account.findByEmail(email);
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+
+    if(!account || !account.validatePassword(password)) {
+        ctx.status = 403;
+        return;
+    }
+
+    ctx.body = account.profile;
+};
 
 export const exists = async (ctx) => {
     ctx.body = 'exists';
