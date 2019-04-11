@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const jwtSecret = process.env.JWT_SECRET;
 const jwt = require('jsonwebtoken');
 
@@ -6,10 +9,10 @@ const jwt = require('jsonwebtoken');
  * @param {any} payload 
  * @returns {string} token
  */
-
 function generateToken(payload) {
     return new Promise(
         (resolve, reject) => {
+            console.log(jwtSecret);
             jwt.sign(
                 payload,
                 jwtSecret,
@@ -23,15 +26,4 @@ function generateToken(payload) {
         }
     );
 };
-
-Account.methods.generateToken = function() {
-    // JWT 에 담을 내용
-    const payload = {
-        _id: this._id,
-        profile: this.profile
-    };
-
-    return generateToken(payload, 'account');
-};
-
 exports.generateToken = generateToken;
