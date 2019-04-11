@@ -112,3 +112,14 @@ export const logout = async (ctx) => {
     });
     ctx.status = 204;
 }
+
+export const check = (ctx) => {
+    const { user } = ctx.request;
+
+    if(!user) {
+        ctx.status = 403; // Forbidden
+        return;
+    }
+
+    ctx.body = user.profile;
+};
