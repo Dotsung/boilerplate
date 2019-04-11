@@ -15,4 +15,4 @@
 - Styled-Components
 
 ### backend
-- firebase
+- Koa
