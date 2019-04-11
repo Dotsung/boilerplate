@@ -106,5 +106,9 @@ export const exists = async (ctx) => {
 }
 
 export const logout = async (ctx) => {
-    ctx.body = 'logout';
+    ctx.cookies.set('access_token', null, {
+        maxAge: 0, 
+        httpOnly: true
+    });
+    ctx.status = 204;
 }
