@@ -2,7 +2,6 @@
 import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
-import db from 'shared/firebaseInit';
 import { SignInContainer, FormContainer, Form, StyledH1, SocialContainer, SocialA, StyledSpan, StyledInput, StyledA, StyledButton } from 'components/Auth/Style';
 
 @inject("authToggle")
@@ -50,11 +49,6 @@ class SignIn extends React.Component {
   @action.bound
   onSubmit() {
     const { userName, email, password } = this
-    const userRef = db.collection('users').add({
-      userName: userName,
-      email: email,
-      password: password
-    }); 
   }
 }
 
