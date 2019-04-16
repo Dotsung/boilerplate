@@ -14,6 +14,12 @@ dotenv.config();
 const app = new Koa();
 const router = new Router();
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 mongoose.Promise = global.Promise; // Node 의 네이티브 Promise 사용
 // mongodb 연결
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }).then(
