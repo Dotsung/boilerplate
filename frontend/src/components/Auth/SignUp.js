@@ -58,9 +58,10 @@ class SignUp extends React.Component {
   @action.bound
   onSubmit() {
     const { userName, email, password } = this;
-    AuthApi.localRegister(email, userName, password)
-    .then((data) => {
-      console.log(data);
+    AuthApi.localRegister({
+      "email": email, 
+      "username": userName, 
+      "password": password
     });
   }
 }
