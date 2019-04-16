@@ -3,6 +3,7 @@ import React from 'react';
 import { observable, action } from 'mobx'
 import { observer, inject } from 'mobx-react'
 import { SignInContainer, FormContainer, Form, StyledH1, SocialContainer, SocialA, StyledSpan, StyledInput, StyledA, StyledButton } from 'components/Auth/Style';
+import * as AuthApi from 'lib/api/auth';
 
 @inject("authToggle")
 @observer
@@ -48,7 +49,8 @@ class SignIn extends React.Component {
 
   @action.bound
   onSubmit() {
-    const { userName, email, password } = this
+    const { email, password } = this;
+    AuthApi.localLogin({ email, password });
   }
 }
 
