@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import Router from 'koa-router';
+import cors  from '@koa/cors';
 
 import api from './api';
 
@@ -14,11 +15,7 @@ dotenv.config();
 const app = new Koa();
 const router = new Router();
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors());
 
 mongoose.Promise = global.Promise; // Node 의 네이티브 Promise 사용
 // mongodb 연결
