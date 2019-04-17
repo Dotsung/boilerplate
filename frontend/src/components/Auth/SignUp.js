@@ -14,7 +14,7 @@ class SignUp extends React.Component {
 
   render() {
     const { userName, email, password } = this
-    const { rightPanelActive} = this.props.authToggle;
+    const { rightPanelActive } = this.props.authToggle;
 
     return(
       <SignUpContainer rightPanelActive={rightPanelActive}>

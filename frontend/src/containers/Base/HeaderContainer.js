@@ -11,10 +11,10 @@ const StyledButton = styled.button`
 @inject("authToggle")
 class HeaderContainer extends Component {
     render() {
-        const { ModalToggle } = this.props.authToggle;
+        const { ModalOn } = this.props.authToggle;
         return (
             <Header>
-                <StyledButton onClick={ModalToggle}>Login</StyledButton>
+                <StyledButton onClick={ModalOn}>Login</StyledButton>
             </Header>
         );
     }

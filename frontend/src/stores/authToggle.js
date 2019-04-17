@@ -15,8 +15,13 @@ class AuthToggle {
   }
 
   @action.bound
-  ModalToggle() {
-    this.authOn = !this.authOn;
+  ModalOn() {
+    this.authOn = true;
+  }
+
+  @action.bound
+  ModalOff() {
+    this.authOn = false;
   }
 }
 

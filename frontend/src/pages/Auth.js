@@ -31,12 +31,12 @@ const Modal = styled.div`
 class Auth extends React.Component {
   render() {
 
-    const { authOn, ModalToggle } = this.props.authToggle;
+    const { authOn, ModalOff } = this.props.authToggle;
 
     return (
       <div>
         <HeaderContainer/>
-        <Modal authOn={authOn} >
+        <Modal authOn={authOn} onClick={ModalOff}>
           <Div>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossOrigin="anonymous"></link>
             <Container>
@@ -49,6 +49,7 @@ class Auth extends React.Component {
       </div>
     );
   }
+
 }
 
 export default Auth;
