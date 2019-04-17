@@ -1,7 +1,7 @@
-import TestStore from './testStore'
+import AuthStore from './authStore'
 import AuthToggle from './authToggle'
 
 export const stores = {
-  testStore: new TestStore(),
+  authStore: new AuthStore(),
   authToggle: new AuthToggle()
 }

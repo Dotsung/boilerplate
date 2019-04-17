@@ -1,16 +1,19 @@
-import { observable, action } from 'mobx'
+import { observable, action } from 'mobx';
 import * as AuthAPI from 'lib/api/auth';
 
 class AuthStore {
-  @observable userList
+  @observable token
 
   constructor() {
-    this.userList = []
+    this.token = ''
   }
 
   @action.bound
-  addUser(newUser) {
-    this.userList.push(newUser)
+  Login({email, password}) {
+    AuthAPI.localLogin({email, password})
+    .then((res) => {
+      this.token = res.data.token;
+    })
   }
 }
 

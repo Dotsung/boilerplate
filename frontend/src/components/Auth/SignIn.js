@@ -6,6 +6,7 @@ import { SignInContainer, FormContainer, Form, StyledH1, SocialContainer, Social
 import * as AuthApi from 'lib/api/auth';
 
 @inject("authToggle")
+@inject("authStore")
 @observer
 class SignIn extends React.Component {
   @observable email = ''
@@ -48,8 +49,9 @@ class SignIn extends React.Component {
 
   @action.bound
   onSubmit() {
+    const { Login } = this.props.authStore;
     const { email, password } = this;
-    AuthApi.localLogin({ email, password });
+    Login({ email, password });
   }
 }
 

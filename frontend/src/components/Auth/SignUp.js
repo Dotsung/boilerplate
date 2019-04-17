@@ -44,7 +44,7 @@ class SignUp extends React.Component {
 
   @action.bound
   onPress(f){
-    if(f.key == 'Enter'){
+    if(f.key === 'Enter'){
       this.onSubmit();
     }
   }
