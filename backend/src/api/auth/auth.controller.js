@@ -47,8 +47,8 @@ export const localRegister = async (ctx) => {
         ctx.throw(500, e);
     }
 
-    ctx.cookies.set('access_token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
-    ctx.body = account.profile; // 프로필 정보로 응답합니다.
+    //ctx.cookies.set('access_token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
+    ctx.body = { "token": token };
 };
 
 export const localLogin = async (ctx) => {
@@ -85,8 +85,9 @@ export const localLogin = async (ctx) => {
         ctx.throw(500, e);
     }
 
-    ctx.cookies.set('access_token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
-    ctx.body = account.profile; // 프로필 정보로 응답합니다.
+    //ctx.cookies.set('access_token', token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 * 7 });
+    //ctx.body = account.profile; // 프로필 정보로 응답합니다.
+    ctx.body = { "token": token };
 };
 
 export const exists = async (ctx) => {
