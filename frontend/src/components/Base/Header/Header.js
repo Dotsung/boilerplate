@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
@@ -60,18 +61,18 @@ const GradientBorder = styled.div`
 `;
 
 const Header = ({children}) => {
-    return (
-        <Positioner>
-            <WhiteBackground>
-                <HeaderContents>
-                    <Logo>SAMPLE</Logo>
-                    <Spacer/>
-                    {children}
-                </HeaderContents>
-            </WhiteBackground>
-            <GradientBorder/>
-        </Positioner>
-    );
-};
+        return (
+            <Positioner>
+                <WhiteBackground>
+                    <HeaderContents>
+                        <Logo>SAMPLE</Logo>
+                        <Spacer/>
+                        {children}
+                    </HeaderContents>
+                </WhiteBackground>
+                <GradientBorder/>
+            </Positioner>
+        );
+}
 
 export default Header;
