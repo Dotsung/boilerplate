@@ -19,7 +19,6 @@ class App extends React.Component {
         <Provider {...stores}>
           <Router history={history}>
             <Switch>
-              <HeaderContainer />
               <Route exact={true} path='/' component={Home} />
               <Route exact={true} path='/auth' component={Auth} />
             </Switch>

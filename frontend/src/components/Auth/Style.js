@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import oc from 'open-color';
 
 
 export const Div = styled.div`
@@ -127,8 +128,8 @@ export const StyledButton = styled.button`
           }
           else{ 
               return `
-                border: 1px solid #ff4b2b;
-                background-color: #ff4b2b;
+                border: 1px solid ${oc.indigo[6]};
+                background-color: ${oc.indigo[6]};
             `
           }
       }
@@ -200,7 +201,7 @@ export const OverlayContainer = styled.div`
 export const OverlayDiv = styled.div`
     background: #ff416c;
     background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background: linear-gradient(to right, ${oc.indigo[5]}, ${oc.indigo[7]});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
