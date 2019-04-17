@@ -44,7 +44,6 @@ class SignIn extends React.Component {
   onChange(event) {
     const { name, value } = event.target;
     this[name] = value;
-    console.log(name, value);
   }
 
   @action.bound
