@@ -3,10 +3,25 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
-import { Container, StyledTable, Thead, TheadTh, TbodyTh, Contents, Writer} from './TableStyle'
+import { Container, StyledTable, Thead, TheadTh} from './TableStyle'
+
+import TableRow from './TableRow';
 
 class Table extends React.Component {
   render() {
+
+    const posts = [
+        {
+            title: "hi",
+            contents: "my name is oo",
+            writer: "ht"
+        },
+        {
+            title: "bye",
+            contents: "my name is AA",
+            writer: "th"
+        }
+    ]
 
     return (
         <Container>
@@ -19,11 +34,14 @@ class Table extends React.Component {
                   </tr>
               </Thead>
               <tbody>
-                  <tr>
-                      <TbodyTh scope="cols">항목명</TbodyTh>
-                      <Contents>내용이 들어갑니다.</Contents>
-                      <Writer>작성자</Writer>
-                  </tr>
+                  { posts.map((post, index) => 
+                      <TableRow 
+                        title={post.title}
+                        contents={post.contents}
+                        writer={post.writer}
+                        key={index}
+                    /> 
+                  )}
               </tbody>
           </StyledTable>
         </Container>
