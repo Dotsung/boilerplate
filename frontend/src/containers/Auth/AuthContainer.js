@@ -22,6 +22,7 @@ const ModalBackground = styled.div`
     return props.authOn?`display:block`:`display: none;`
   }}
   position: fixed; /* Stay in place */
+  top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
