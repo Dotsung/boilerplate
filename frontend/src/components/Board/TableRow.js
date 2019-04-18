@@ -1,13 +1,15 @@
 // @flow
 import React from 'react';
-import { TbodyTh, Contents, Writer } from './TableStyle'
+import { Id, Title, Writer, Date, Views } from './TableStyle'
 
-const TableRow = ({title, contents, writer}) => {
+const TableRow = ({id, title, writer, date, views}) => {
     return (
         <tr>
-            <TbodyTh scope="cols">{title}</TbodyTh>
-            <Contents>{contents}</Contents>
+            <Id scope="cols">{id}</Id>
+            <Title>{title}</Title>
             <Writer>{writer}</Writer>
+            <Date>{date}</Date>
+            <Views>{views}</Views>
         </tr>
     )
 }

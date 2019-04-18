@@ -29,16 +29,16 @@ export const TheadTh = styled.th`
     color: #fff;
 `
 
-export const TbodyTh = styled.th`
-    width: 200px;
+export const Id = styled.th`
+    width: 50px;
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
     border-bottom: 1px solid #ccc;
-    background: ${oc.indigo[0]};
+    //background: ${oc.indigo[0]};
 `
 
-export const Contents = styled.td`
+export const Title = styled.td`
     width: 600px;
     padding: 10px;
     vertical-align: top;
@@ -47,6 +47,20 @@ export const Contents = styled.td`
 
 export const Writer = styled.td`
     width: 100px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+`
+
+export const Date = styled.td`
+    width: 50px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+`
+
+export const Views = styled.td`
+    width: 50px;
     padding: 10px;
     vertical-align: top;
     border-bottom: 1px solid #ccc;

@@ -12,14 +12,18 @@ class Table extends React.Component {
 
     const posts = [
         {
+            id: 1,
             title: "hi",
-            contents: "my name is oo",
-            writer: "ht"
+            writer: "ht",
+            date: "04/18",
+            views: 100
         },
         {
-            title: "bye",
-            contents: "my name is AA",
-            writer: "th"
+            id: 2,
+            title: "hi",
+            writer: "ht",
+            date: "04/18",
+            views: 120
         }
     ]
 
@@ -28,19 +32,24 @@ class Table extends React.Component {
           <StyledTable>
               <Thead>
                   <tr>
+                      <TheadTh scope="cols">번호</TheadTh>
                       <TheadTh scope="cols">제목</TheadTh>
-                      <TheadTh scope="cols">내용</TheadTh>
-                      <TheadTh scope="cols">작성자</TheadTh>
+                      <TheadTh scope="cols">글쓴이</TheadTh>
+                      <TheadTh scope="cols">날짜</TheadTh>
+                      <TheadTh scope="cols">조회</TheadTh>
                   </tr>
               </Thead>
               <tbody>
-                  { posts.map((post, index) => 
+                  { 
+                      posts.map((post, index) => 
                       <TableRow 
+                        id={post.id}
                         title={post.title}
-                        contents={post.contents}
                         writer={post.writer}
+                        date={post.date}
+                        views={post.views}
                         key={index}
-                    /> 
+                      />
                   )}
               </tbody>
           </StyledTable>
