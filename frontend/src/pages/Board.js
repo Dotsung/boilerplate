@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import HeaderContainer from 'containers/Base/HeaderContainer';
 import AuthContainer from 'containers/Auth/AuthContainer';
 
+import Table from 'components/Board/Table'
+
 const Content = styled.div`
   margin-top: 60px;
 `
@@ -23,7 +25,7 @@ class Auth extends React.Component {
         <HeaderContainer/>
         <AuthContainer />
         <Content>
-            Board
+            <Table />
         </Content>
       </div>
     );
