@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Id, Title, Writer, Date, Views } from './TableStyle'
+import { Id, Title, Writer, Date, Views } from './BoardStyle'
 
 const TableRow = ({id, title, writer, date, views}) => {
     return (

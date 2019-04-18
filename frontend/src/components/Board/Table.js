@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
-import { Container, StyledTable, Thead, TheadTh} from './TableStyle'
+import { Container, StyledTable, Thead, TheadTh} from './BoardStyle'
 
 import TableRow from './TableRow';
 
