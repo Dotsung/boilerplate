@@ -11,7 +11,7 @@ const Positioner = styled.div`
     position: fixed;
     top: 0px;
     width: 100%;
-    ${shadow(1)}
+    ${shadow(0)}
 `;
 
 // 흰 배경, 내용 중간 정렬
@@ -24,7 +24,7 @@ const WhiteBackground = styled.div`
 
 // 해더의 내용
 const HeaderContents = styled.div`
-    width: 1200px;
+    width: 1500px;
     height: 55px;
     display: flex;
     flex-direction: row;
@@ -44,7 +44,7 @@ const HeaderContents = styled.div`
 // 로고
 const Logo = styled.div`
     font-size: 1.4rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: ${oc.indigo[6]};
     font-family: 'Rajdhani';
 `;

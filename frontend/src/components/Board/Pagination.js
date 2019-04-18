@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import oc from 'open-color';
 
 const Div = styled.div`
-    margin-top: 2%;
+    margin-top: 30px;
     text-align: center;
     width: 100%;
 `

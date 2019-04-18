@@ -5,7 +5,7 @@ import oc from 'open-color';
 
 export const Container = styled.div`
     width: 100%;
-    margin-top: 5%;
+    margin-top: 90px;
 `
 
 export const StyledTable = styled.table`
@@ -13,7 +13,7 @@ export const StyledTable = styled.table`
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
-    border: 1px solid #ccc;
+    //border: 1px solid #ccc;
 `
 
 export const Thead = styled.thead`
