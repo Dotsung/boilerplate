@@ -7,7 +7,7 @@ import HeaderContainer from 'containers/Base/HeaderContainer';
 
 import './App.css'
 
-import { Home, Auth } from 'pages';
+import { Home, Auth, Board } from 'pages';
 import { stores } from './stores'
 
 const history = createBrowserHistory()
@@ -21,6 +21,7 @@ class App extends React.Component {
             <Switch>
               <Route exact={true} path='/' component={Home} />
               <Route exact={true} path='/auth' component={Auth} />
+              <Route exact={true} path='/board' component={Board} />
             </Switch>
           </Router>
         </Provider>

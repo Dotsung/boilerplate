@@ -32,6 +32,10 @@ const ModalBackground = styled.div`
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 `
 
+const Content = styled.div`
+  margin-top: 60px;
+`
+
 @inject("authToggle")
 @observer
 class Auth extends React.Component {
@@ -53,6 +57,9 @@ class Auth extends React.Component {
             </Container>
           </Div>
         </Modal>
+        <Content>
+            Board
+        </Content>
       </div>
     );
   }
